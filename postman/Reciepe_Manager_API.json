@@ -1,0 +1,523 @@
+{
+	"info": {
+		"_postman_id": "65c3f4a2-8f5d-4bc7-88ce-3f2f9a3c9876",
+		"name": "Recipe Manager API",
+		"description": "A CRUD API for managing recipes using Node.js, Express.js, and Mongoose",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Recipe",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Spaghetti Carbonara\",\n    \"description\": \"A classic Italian pasta dish with eggs, cheese, pancetta, and pepper.\",\n    \"ingredients\": [\n        {\n            \"name\": \"Spaghetti\",\n            \"quantity\": \"200g\"\n        },\n        {\n            \"name\": \"Pancetta\",\n            \"quantity\": \"100g\"\n        },\n        {\n            \"name\": \"Eggs\",\n            \"quantity\": \"2\"\n        },\n        {\n            \"name\": \"Parmesan cheese\",\n            \"quantity\": \"50g\"\n        },\n        {\n            \"name\": \"Black pepper\",\n            \"quantity\": \"to taste\"\n        }\n    ],\n    \"instructions\": \"1. Cook pasta in salted water until al dente.\\n2. Fry pancetta until crispy.\\n3. Beat eggs and mix with grated cheese.\\n4. Drain pasta and mix with pancetta.\\n5. Add egg mixture and stir quickly.\\n6. Season with black pepper and serve immediately.\",\n    \"cookingTime\": 20,\n    \"difficulty\": \"Medium\",\n    \"servings\": 2,\n    \"cuisine\": \"Italian\",\n    \"tags\": [\"pasta\", \"dinner\", \"quick\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/recipes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"recipes"
+					]
+				},
+				"description": "Create a new recipe with all required fields. The API validates the input and returns the created recipe with a success message."
+			},
+			"response": [
+				{
+					"name": "Successful Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Spaghetti Carbonara\",\n    \"description\": \"A classic Italian pasta dish with eggs, cheese, pancetta, and pepper.\",\n    \"ingredients\": [\n        {\n            \"name\": \"Spaghetti\",\n            \"quantity\": \"200g\"\n        },\n        {\n            \"name\": \"Pancetta\",\n            \"quantity\": \"100g\"\n        },\n        {\n            \"name\": \"Eggs\",\n            \"quantity\": \"2\"\n        },\n        {\n            \"name\": \"Parmesan cheese\",\n            \"quantity\": \"50g\"\n        },\n        {\n            \"name\": \"Black pepper\",\n            \"quantity\": \"to taste\"\n        }\n    ],\n    \"instructions\": \"1. Cook pasta in salted water until al dente.\\n2. Fry pancetta until crispy.\\n3. Beat eggs and mix with grated cheese.\\n4. Drain pasta and mix with pancetta.\\n5. Add egg mixture and stir quickly.\\n6. Season with black pepper and serve immediately.\",\n    \"cookingTime\": 20,\n    \"difficulty\": \"Medium\",\n    \"servings\": 2,\n    \"cuisine\": \"Italian\",\n    \"tags\": [\"pasta\", \"dinner\", \"quick\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Recipe created successfully\",\n    \"data\": {\n        \"title\": \"Spaghetti Carbonara\",\n        \"description\": \"A classic Italian pasta dish with eggs, cheese, pancetta, and pepper.\",\n        \"ingredients\": [\n            {\n                \"name\": \"Spaghetti\",\n                \"quantity\": \"200g\",\n                \"_id\": \"60d21b4667d0d8992e610c86\"\n            },\n            {\n                \"name\": \"Pancetta\",\n                \"quantity\": \"100g\",\n                \"_id\": \"60d21b4667d0d8992e610c87\"\n            },\n            {\n                \"name\": \"Eggs\",\n                \"quantity\": \"2\",\n                \"_id\": \"60d21b4667d0d8992e610c88\"\n            },\n            {\n                \"name\": \"Parmesan cheese\",\n                \"quantity\": \"50g\",\n                \"_id\": \"60d21b4667d0d8992e610c89\"\n            },\n            {\n                \"name\": \"Black pepper\",\n                \"quantity\": \"to taste\",\n                \"_id\": \"60d21b4667d0d8992e610c8a\"\n            }\n        ],\n        \"instructions\": \"1. Cook pasta in salted water until al dente.\\n2. Fry pancetta until crispy.\\n3. Beat eggs and mix with grated cheese.\\n4. Drain pasta and mix with pancetta.\\n5. Add egg mixture and stir quickly.\\n6. Season with black pepper and serve immediately.\",\n        \"cookingTime\": 20,\n        \"difficulty\": \"Medium\",\n        \"servings\": 2,\n        \"cuisine\": \"Italian\",\n        \"tags\": [\n            \"pasta\",\n            \"dinner\",\n            \"quick\"\n        ],\n        \"createdAt\": \"2023-08-15T09:23:45.678Z\",\n        \"updatedAt\": \"2023-08-15T09:23:45.678Z\"\n    }\n}"
+				},
+				{
+					"name": "Not Found Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/60d21b4667d0d8992e610c99",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"60d21b4667d0d8992e610c99"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Recipe not found\",\n    \"errors\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Recipe",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Spaghetti Carbonara - Updated\",\n    \"description\": \"A classic Italian pasta dish with eggs, cheese, pancetta, and black pepper.\",\n    \"cookingTime\": 25,\n    \"servings\": 3,\n    \"tags\": [\"pasta\", \"dinner\", \"quick\", \"updated\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/recipes/60d21b4667d0d8992e610c85",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"recipes",
+						"60d21b4667d0d8992e610c85"
+					]
+				},
+				"description": "Update a recipe by its ID. You can update any field of the recipe. All fields will be validated. If the recipe is not found, a 404 error is returned."
+			},
+			"response": [
+				{
+					"name": "Successful Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Spaghetti Carbonara - Updated\",\n    \"description\": \"A classic Italian pasta dish with eggs, cheese, pancetta, and black pepper.\",\n    \"cookingTime\": 25,\n    \"servings\": 3,\n    \"tags\": [\"pasta\", \"dinner\", \"quick\", \"updated\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/60d21b4667d0d8992e610c85",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"60d21b4667d0d8992e610c85"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Recipe updated successfully\",\n    \"data\": {\n        \"_id\": \"60d21b4667d0d8992e610c85\",\n        \"title\": \"Spaghetti Carbonara - Updated\",\n        \"description\": \"A classic Italian pasta dish with eggs, cheese, pancetta, and black pepper.\",\n        \"ingredients\": [\n            {\n                \"name\": \"Spaghetti\",\n                \"quantity\": \"200g\",\n                \"_id\": \"60d21b4667d0d8992e610c86\"\n            },\n            {\n                \"name\": \"Pancetta\",\n                \"quantity\": \"100g\",\n                \"_id\": \"60d21b4667d0d8992e610c87\"\n            },\n            {\n                \"name\": \"Eggs\",\n                \"quantity\": \"2\",\n                \"_id\": \"60d21b4667d0d8992e610c88\"\n            },\n            {\n                \"name\": \"Parmesan cheese\",\n                \"quantity\": \"50g\",\n                \"_id\": \"60d21b4667d0d8992e610c89\"\n            },\n            {\n                \"name\": \"Black pepper\",\n                \"quantity\": \"to taste\",\n                \"_id\": \"60d21b4667d0d8992e610c8a\"\n            }\n        ],\n        \"instructions\": \"1. Cook pasta in salted water until al dente.\\n2. Fry pancetta until crispy.\\n3. Beat eggs and mix with grated cheese.\\n4. Drain pasta and mix with pancetta.\\n5. Add egg mixture and stir quickly.\\n6. Season with black pepper and serve immediately.\",\n        \"cookingTime\": 25,\n        \"difficulty\": \"Medium\",\n        \"servings\": 3,\n        \"cuisine\": \"Italian\",\n        \"tags\": [\n            \"pasta\",\n            \"dinner\",\n            \"quick\",\n            \"updated\"\n        ],\n        \"createdAt\": \"2023-08-15T09:23:45.678Z\",\n        \"updatedAt\": \"2023-08-15T10:15:22.456Z\"\n    }\n}"
+				},
+				{
+					"name": "Not Found Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Spaghetti Carbonara - Updated\",\n    \"description\": \"A classic Italian pasta dish with eggs, cheese, pancetta, and black pepper.\",\n    \"cookingTime\": 25,\n    \"servings\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/60d21b4667d0d8992e610c99",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"60d21b4667d0d8992e610c99"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Recipe not found\",\n    \"errors\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Recipe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/recipes/60d21b4667d0d8992e610c85",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"recipes",
+						"60d21b4667d0d8992e610c85"
+					]
+				},
+				"description": "Delete a recipe by its ID. If the recipe is not found, a 404 error is returned."
+			},
+			"response": [
+				{
+					"name": "Successful Response",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/60d21b4667d0d8992e610c85",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"60d21b4667d0d8992e610c85"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Recipe deleted successfully\",\n    \"data\": null\n}"
+				},
+				{
+					"name": "Not Found Response",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/60d21b4667d0d8992e610c99",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"60d21b4667d0d8992e610c99"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Recipe not found\",\n    \"errors\": null\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5000",
+			"type": "string",
+			"description": "Base URL for the API"
+		}
+	]
+}d\": \"60d21b4667d0d8992e610c89\"\n            },\n            {\n                \"name\": \"Black pepper\",\n                \"quantity\": \"to taste\",\n                \"_id\": \"60d21b4667d0d8992e610c8a\"\n            }\n        ],\n        \"instructions\": \"1. Cook pasta in salted water until al dente.\\n2. Fry pancetta until crispy.\\n3. Beat eggs and mix with grated cheese.\\n4. Drain pasta and mix with pancetta.\\n5. Add egg mixture and stir quickly.\\n6. Season with black pepper and serve immediately.\",\n        \"cookingTime\": 20,\n        \"difficulty\": \"Medium\",\n        \"servings\": 2,\n        \"cuisine\": \"Italian\",\n        \"tags\": [\n            \"pasta\",\n            \"dinner\",\n            \"quick\"\n        ],\n        \"_id\": \"60d21b4667d0d8992e610c85\",\n        \"createdAt\": \"2023-08-15T09:23:45.678Z\",\n        \"updatedAt\": \"2023-08-15T09:23:45.678Z\",\n        \"__v\": 0\n    }\n}"
+				},
+				{
+					"name": "Validation Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Spaghetti Carbonara\",\n    \"description\": \"A classic Italian pasta dish with eggs, cheese, pancetta, and pepper.\",\n    \"ingredients\": [\n        {\n            \"name\": \"Spaghetti\"\n        }\n    ],\n    \"cookingTime\": 20,\n    \"difficulty\": \"Medium\",\n    \"servings\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Validation Error\",\n    \"errors\": [\n        \"Recipe ingredients.0.quantity is required\",\n        \"Cooking instructions are required\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Recipes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/recipes?cuisine=Italian&difficulty=Medium&tags=pasta,dinner&sortBy=createdAt:desc&limit=10&page=1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"recipes"
+					],
+					"query": [
+						{
+							"key": "cuisine",
+							"value": "Italian",
+							"description": "Filter by cuisine"
+						},
+						{
+							"key": "difficulty",
+							"value": "Medium",
+							"description": "Filter by difficulty (Easy, Medium, Hard)"
+						},
+						{
+							"key": "tags",
+							"value": "pasta,dinner",
+							"description": "Filter by tags (comma-separated)"
+						},
+						{
+							"key": "sortBy",
+							"value": "createdAt:desc",
+							"description": "Sort by field (fieldname:asc|desc)"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "Number of recipes per page"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Page number"
+						}
+					]
+				},
+				"description": "Get all recipes with optional filtering, sorting, and pagination. You can filter by cuisine, difficulty, and tags. You can also sort by any field in ascending or descending order. Pagination is supported with limit and page parameters."
+			},
+			"response": [
+				{
+					"name": "Successful Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes?cuisine=Italian&difficulty=Medium&tags=pasta,dinner&sortBy=createdAt:desc&limit=10&page=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							],
+							"query": [
+								{
+									"key": "cuisine",
+									"value": "Italian"
+								},
+								{
+									"key": "difficulty",
+									"value": "Medium"
+								},
+								{
+									"key": "tags",
+									"value": "pasta,dinner"
+								},
+								{
+									"key": "sortBy",
+									"value": "createdAt:desc"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Recipes retrieved successfully\",\n    \"data\": {\n        \"recipes\": [\n            {\n                \"_id\": \"60d21b4667d0d8992e610c85\",\n                \"title\": \"Spaghetti Carbonara\",\n                \"description\": \"A classic Italian pasta dish with eggs, cheese, pancetta, and pepper.\",\n                \"ingredients\": [\n                    {\n                        \"name\": \"Spaghetti\",\n                        \"quantity\": \"200g\",\n                        \"_id\": \"60d21b4667d0d8992e610c86\"\n                    },\n                    {\n                        \"name\": \"Pancetta\",\n                        \"quantity\": \"100g\",\n                        \"_id\": \"60d21b4667d0d8992e610c87\"\n                    },\n                    {\n                        \"name\": \"Eggs\",\n                        \"quantity\": \"2\",\n                        \"_id\": \"60d21b4667d0d8992e610c88\"\n                    },\n                    {\n                        \"name\": \"Parmesan cheese\",\n                        \"quantity\": \"50g\",\n                        \"_id\": \"60d21b4667d0d8992e610c89\"\n                    },\n                    {\n                        \"name\": \"Black pepper\",\n                        \"quantity\": \"to taste\",\n                        \"_id\": \"60d21b4667d0d8992e610c8a\"\n                    }\n                ],\n                \"instructions\": \"1. Cook pasta in salted water until al dente.\\n2. Fry pancetta until crispy.\\n3. Beat eggs and mix with grated cheese.\\n4. Drain pasta and mix with pancetta.\\n5. Add egg mixture and stir quickly.\\n6. Season with black pepper and serve immediately.\",\n                \"cookingTime\": 20,\n                \"difficulty\": \"Medium\",\n                \"servings\": 2,\n                \"cuisine\": \"Italian\",\n                \"tags\": [\n                    \"pasta\",\n                    \"dinner\",\n                    \"quick\"\n                ],\n                \"createdAt\": \"2023-08-15T09:23:45.678Z\",\n                \"updatedAt\": \"2023-08-15T09:23:45.678Z\"\n            }\n        ],\n        \"pagination\": {\n            \"currentPage\": 1,\n            \"totalPages\": 1,\n            \"totalRecipes\": 1\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Recipe by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/recipes/60d21b4667d0d8992e610c85",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"recipes",
+						"60d21b4667d0d8992e610c85"
+					]
+				},
+				"description": "Get a single recipe by its ID. If the recipe is not found, a 404 error is returned."
+			},
+			"response": [
+				{
+					"name": "Successful Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/60d21b4667d0d8992e610c85",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"60d21b4667d0d8992e610c85"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Recipe retrieved successfully\",\n    \"data\": {\n        \"_id\": \"60d21b4667d0d8992e610c85\",\n        \"title\": \"Spaghetti Carbonara\",\n        \"description\": \"A classic Italian pasta dish with eggs, cheese, pancetta, and pepper.\",\n        \"ingredients\": [\n            {\n                \"name\": \"Spaghetti\",\n                \"quantity\": \"200g\",\n                \"_id\": \"60d21b4667d0d8992e610c86\"\n            },\n            {\n                \"name\": \"Pancetta\",\n                \"quantity\": \"100g\",\n                \"_id\": \"60d21b4667d0d8992e610c87\"\n            },\n            {\n                \"name\": \"Eggs\",\n                \"quantity\": \"2\",\n                \"_id\": \"60d21b4667d0d8992e610c88\"\n            },\n            {\n                \"name\": \"Parmesan cheese\",\n                \"quantity\": \"50g\",\n                \"_i
