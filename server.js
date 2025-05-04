@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
-const connectDB = require('./config/db');
 const app = require('./app');
+const FileDB = require('./utils/fileDB');
 
 // Load environment variables
 dotenv.config();
@@ -11,8 +11,9 @@ const PORT = process.env.PORT || 5000;
 // Connect to database and start server
 const startServer = async () => {
   try {
-    // Connect to MongoDB
-    await connectDB();
+    // Initialize file-based database
+    await FileDB.init();
+    console.log('File database initialized successfully');
     
     // Start the server
     app.listen(PORT, () => {
